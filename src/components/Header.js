@@ -1,9 +1,12 @@
-import React from 'react';
-import HeaderNavItem from './HeaderNavItem';
+'use strict';
+
+const React = require('react');
+const HeaderNavItem = require('./HeaderNavItem');
 
 module.exports = class extends React.Component {
   constructor(props) {
     super(props);
+    console.log('Header.constructor', {props: this.props, state: this.state});
     this.handleChangeNaveItem = this.handleChangeNaveItem.bind(this);
   }
 
@@ -16,11 +19,21 @@ module.exports = class extends React.Component {
   }
 
   componentDidMount() {
+    console.log('Header.componentDidMount', {props: this.props, state: this.state});
     $(this.refs.test).sortable();
     this.refs.item0.setState({selected: true});
   }
 
+  componentWillReceiveProps(props) {
+    if (this.props.nav === props.nav) {
+      //
+    }
+    console.log('Header.componentWillReceiveProps', {props: this.props, state: this.state});
+    //
+  }
+
   render() {
+    console.log('Header.render', {props: this.props, state: this.state});
     return (
       <header>
         <ul ref="test">

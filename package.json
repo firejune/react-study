@@ -16,12 +16,10 @@
     "react-dom": "^0.14.3"
   },
   "devDependencies": {
-    "babel-core": "^6.4.5",
     "babel-eslint": "^5.0.0-beta6",
     "babel-loader": "^6.2.1",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
-    "babel-preset-stage-0": "^6.3.13",
     "electron-prebuilt": "^0.36.4",
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "^3.1.0",
@@ -29,6 +27,7 @@
     "eslint-plugin-react": "^3.15.0",
     "eslint-plugin-standard": "^1.3.1",
     "jest-cli": "^0.8.2",
+    "node-jsx": "^0.13.3",
     "react-addons-test-utils": "^0.14.6",
     "webpack": "^1.12.11",
     "webpack-dev-server": "^1.12.0"
@@ -36,7 +35,10 @@
   "jest": {
     "rootDir": "./src",
     "scriptPreprocessor": "../scripts/test.js",
-    "unmockedModulePathPatterns": ["fbjs", "react"]
+    "unmockedModulePathPatterns": [
+      "fbjs",
+      "react"
+    ]
   },
   "scripts": {
     "start": "electron .",

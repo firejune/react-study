@@ -1,11 +1,12 @@
-import jQuery from 'jquery';
+'use strict';
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+const jQuery = require('jquery');
+const React = require('react');
+const ReactDOM = require('react-dom');
 
-import Header from './components/Header';
-import Content from './components/Content';
-import Footer from './components/Footer';
+const Header = require('./components/Header');
+const Content = require('./components/Content');
+const Footer = require('./components/Footer');
 
 /*
 - Root
@@ -18,12 +19,20 @@ import Footer from './components/Footer';
 class Root extends React.Component {
   constructor(props) {
     super(props);
+    console.log('Root.constructor', {props: this.props, state: this.state});
 
     this.state = {
       nav: 'Home'
     };
 
     this.handleChangeNave = this.handleChangeNave.bind(this);
+  }
+
+  componentDidMount() {
+    console.log('Root.componentDidMount', {props: this.props, state: this.state});
+    setTimeout(() => {
+      this.setState({nav: 'About'});
+    }, 100);
   }
 
   handleChangeNave(idx) {
@@ -33,6 +42,8 @@ class Root extends React.Component {
   }
 
   render() {
+    console.log('Root.render', {props: this.props, state: this.state});
+
     return (
       <div>
         <Header
@@ -46,8 +57,15 @@ class Root extends React.Component {
   }
 }
 
+Root.defaultProps = {
+  nav: ['Home', 'About', 'Feature', 'Help']
+};
+
+Root.propTypes = {
+  nav: React.PropTypes.array
+};
+
 global.$ = jQuery;
 require('jquery-ui/sortable');
 
-const nav = ['Home', 'About', 'Feature', 'Help'];
-ReactDOM.render(<Root nav={nav} />, document.getElementById('main'));
+ReactDOM.render(<Root />, document.getElementById('main'));

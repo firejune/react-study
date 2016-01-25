@@ -32,6 +32,6 @@ class HeaderNavItem extends React.Component {
       </li>
     );
   }
-};
+}
 
 module.exports = HeaderNavItem;
