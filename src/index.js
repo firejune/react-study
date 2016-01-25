@@ -1,12 +1,14 @@
 'use strict';
 
-const jQuery = require('jquery');
-const React = require('react');
-const ReactDOM = require('react-dom');
+require('../scripts/transform-test');
 
-const Header = require('./components/Header');
-const Content = require('./components/Content');
-const Footer = require('./components/Footer');
+import jQuery from 'jquery';
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import Header from './components/Header';
+import Content from './components/Content';
+import Footer from './components/Footer';
 
 /*
 - Root
