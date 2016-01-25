@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Firejune's React Study Example</title>
+  </head>
+  <body>
+    <div id="main"></div>
+    <script>
+      if (!!window.require) {
+        // install babel hooks in the main process
+        require('babel-core/register')();
+        require('./src');
+      } else {
+        document.write('<script src="\/bundle.js"><\/script>');
+      }
+    </script>
+  </body>
+</html>

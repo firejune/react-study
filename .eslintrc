@@ -1,0 +1,60 @@
+{
+    /**
+     * ECMA 요구사항
+     */
+    "ecmaFeatures": {
+        "jsx": true,
+        "modules": true,
+        "experimentalObjectRestSpread": true
+    },
+
+    /**
+     * 환경
+     */
+    "env": {
+        // ES6 문법 사용
+        "es6": true,
+        // Node.js에서 사용
+        "node": true,
+        // 브라우저에서 사용
+        "browser": true
+    },
+
+    /**
+     * 확장
+     */
+    "extends": ["standard", "airbnb"],
+
+    /**
+     * 글로벌 변수
+     */
+    "globals": {
+        "$": true
+    },
+
+    /**
+     * 파서
+     */
+    "parser": "babel-eslint",
+
+    /**
+     * 플러그인
+     */
+    "plugins": ["standard", "react"],
+
+    /**
+     * 사용자화
+     */
+    "rules": {
+        "comma-dangle": [2, "never"],
+        "default-case": 0,
+        "func-names": 0,
+        "new-cap": [2, { "newIsCap": true, "capIsNew": false }],
+        "no-console": 0,
+        "object-curly-spacing": [2, "never"],
+        "react/prop-types": 0,
+        "react/sort-comp": 0,
+        "space-before-function-paren": [2, "never"],
+        "strict": 0
+    }
+}
