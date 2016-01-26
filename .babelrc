@@ -6,9 +6,9 @@
   ],
   "plugins": [
     // ES2015
-    "transform-es2015-classes",
     "transform-es2015-destructuring",
     "transform-es2015-modules-commonjs",
+    // "transform-es2015-object-super", // Not Working
     "transform-es2015-parameters",
     "transform-es2015-shorthand-properties",
     // "transform-es2015-sticky-regex", // Not Working

@@ -3,5 +3,6 @@
 
 build
 dist
+babel
 node_modules
 npm-debug.log

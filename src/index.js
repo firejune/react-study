@@ -1,7 +1,5 @@
 'use strict';
 
-require('../scripts/transform-test');
-
 import jQuery from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';

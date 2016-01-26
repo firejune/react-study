@@ -20,3 +20,8 @@ app.on('ready', () => {
     app.quit();
   });
 });
+
+require('babel-core/register')({
+  ignore: /node_modules/
+});
+require('./scripts/transform-test');
