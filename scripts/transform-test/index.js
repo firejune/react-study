@@ -56,11 +56,11 @@ function assertion(task) {
   }
 
   if (isSyntaxError) {
-    log('SYNTAX FAILURE'.red, task.file.cyan, message);
+    log('EXCUTE FAILURE'.red, `${task.name}/${task.file}`.cyan, message);
   } else if (isAssertionError) {
-    log('ASSERTION FAILURE'.red, task.file.cyan, message);
+    log('ASSERTION FAILURE'.red, `${task.name}/${task.file}`.cyan, message);
   } else {
-    log('ASSERTION SUCCESS'.green, task.file.cyan);
+    log('ASSERTION SUCCESS'.green, `${task.name}/${task.file}`.cyan);
   }
 }
 
@@ -82,9 +82,9 @@ function syntax(task) {
   }
 
   if (isSyntaxError) {
-    log('SYNTAX FAILURE'.red, task.name.cyan, message);
+    log('SYNTAX FAILURE'.red, `${task.name}/${task.file}`.cyan, message);
   } else {
-    log('SYNTAX SUCCESS'.green, task.name.cyan);
+    log('SYNTAX SUCCESS'.green, `${task.name}/${task.file}`.cyan);
   }
 }
 
