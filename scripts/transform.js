@@ -4,7 +4,7 @@
 transform-es2015-arrow-functions => 구현됨
 transform-es2015-block-scoped-functions => 구현됨
 transform-es2015-block-scoping => 구현됨
-transform-es2015-classes => 일부 구현됨 (O)
+transform-es2015-classes => 구현됨
 transform-es2015-computed-properties => 구현됨
 transform-es2015-destructuring => 구현 안됨 (O)
 transform-es2015-for-of => 구현됨
@@ -18,7 +18,7 @@ transform-es2015-spread => 구현됨
 transform-es2015-sticky-regex => 구현 안됨, transform 오작동 (X)
 transform-es2015-template-literals => 구현됨
 transform-es2015-typeof-symbol => 구현됨
-transform-es2015-unicode-regex => 구현됨
+transform-es2015-unicode-regex => 구현 안됨, transform 오작동 (X)
 */
 
 // transform-es2015-classes
