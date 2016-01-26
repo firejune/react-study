@@ -47,7 +47,7 @@ function assertion(task) {
   try {
     require(task.path);
   } catch (e) {
-    message = e;
+    message = e.message;
     if (e.constructor === SyntaxError) {
       isSyntaxError = true;
     } else if (e.constructor === chai.AssertionError) {
