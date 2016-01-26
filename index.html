@@ -8,13 +8,12 @@
     <script>
       if (!!window.require) {
         // install babel hooks in the main process
-        //require('node-jsx').install();
         require('babel-core/register')({
           ignore: /node_modules/,
         });
         require('./src');
       } else {
-        document.write('<script src="\./dist/bundle.js"><\/script>');
+        document.write('<script src="\/bundle.js"><\/script>');
       }
     </script>
   </body>

@@ -19,8 +19,8 @@ class HeaderNavItem extends React.Component {
 
   render() {
     const selectedStyle = {
-      backgroundColor: '#000',
-      color: '#fff'
+      color: '#fff',
+      backgroundColor: '#000'
     };
 
     return (

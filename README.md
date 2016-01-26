@@ -38,7 +38,7 @@
 - ES6 Import 문법 사용
 - ES6 스프레드 어트리뷰트(`…`) 문법 사용
 
-## Part 4, 응용
+## Part 4, ES6 문법과 React 응용
 ### jQuery또는 기존 앱에서 마이그레이션
 - DOM event를 DOMd에 직접 바인딩 할 필요 없다. 컴포넌트 Handler 사용
 - DOM 선택자 사용할 필요 없다. Virtual DOM 사용
