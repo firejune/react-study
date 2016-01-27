@@ -5,7 +5,7 @@ import chai from 'chai';
 import React from 'react';
 
 const DEBUG = false;
-const log = console.log;
+const log = console.log.bind(console);
 
 function scanDir(dir) {
   const files = fs.readdirSync(dir);
@@ -55,8 +55,8 @@ function execute(task) {
     }
 
     if (msg) {
-      if (msg.indexOf('${task.file}:') !== -1) {
-        msg = msg.split('${task.file}:')[1];
+      if (msg.indexOf(`${task.file}:`) !== -1) {
+        msg = msg.split(`${task.file}:`)[1];
       }
 
       log(
@@ -79,7 +79,7 @@ function runTask(suite) {
   let errCount = 0;
 
   for (let i = 0; i < tasks.length; ++i) {
-    if (tasks[i].file === 'actual.js' || tasks[i].file !== 'expected.js') {
+    if (tasks[i].file !== 'expected.js') {
       tasks[i].suite = suite;
       if (execute(tasks[i])) {
         errCount++;
