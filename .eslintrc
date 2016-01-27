@@ -12,11 +12,8 @@
    * 환경
    */
   "env": {
-    // ES6 문법 사용
     "es6": true,
-    // Node.js에서 사용
     "node": true,
-    // 브라우저에서 사용
     "browser": true
   },
 
@@ -51,7 +48,7 @@
     "func-names": 0,
     "new-cap": [2, { "newIsCap": true, "capIsNew": false }],
     "no-console": 0,
-    "object-curly-spacing": [2, "never"],
+    "object-curly-spacing": 0, // [2, "never"]
     "react/prop-types": 0,
     "react/sort-comp": 0,
     "space-before-function-paren": [2, "never"],
