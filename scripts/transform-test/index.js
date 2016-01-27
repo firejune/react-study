@@ -4,6 +4,7 @@ import path from 'path';
 import chai from 'chai';
 import React from 'react';
 
+const DEBUG = false;
 const log = console.log;
 
 function scanDir(dir) {
@@ -12,7 +13,6 @@ function scanDir(dir) {
 
   let filepath;
   let subFiles;
-  let splitedPath;
 
   for (let i = 0, len = files.length; i < len; ++i) {
     if (files[i].charAt(0) !== '.') {
@@ -21,11 +21,8 @@ function scanDir(dir) {
         subFiles = scanDir(path.join(dir, files[i]));
         returnValue.push.apply(returnValue, subFiles);
       } else if (path.extname(files[i]) === '.js' && files[i] !== 'expected.js') {
-        splitedPath = dir.split(path.sep);
-
         returnValue.push({
           path: path.join(dir, files[i]),
-          name: splitedPath[splitedPath.length - 1],
           file: files[i],
           fail: files[i] === 'actual.js' && !fs.existsSync(path.join(dir, 'expected.js'))
         });
@@ -46,28 +43,26 @@ function execute(task) {
   }
 
   if (err) {
-    if (err.constructor === SyntaxError && !task.fail) {
-      if (err.message.indexOf('actual.js:') !== -1) {
-        msg = err.message.split('actual.js:')[1];
-      } else {
-        msg = err.message;
-      }
-    } else if (err.constructor === ReferenceError && task.file !== 'actual.js') {
+    if (err.constructor === SyntaxError && !task.fail
+      || err.constructor === ReferenceError && task.file !== 'actual.js'
+      || err.constructor === TypeError && task.file !== 'actual.js'
+      || err.constructor === Error && task.file !== 'actual.js'
+      || err.constructor === chai.AssertionError
+    ) {
       msg = err.message;
-    } else if (err.constructor === TypeError && task.file !== 'actual.js') {
+    } else if (DEBUG) {
       msg = err.message;
-    } else if (err.constructor === Error && task.file !== 'actual.js') {
-      msg = err.message;
-    } else if (err.constructor === chai.AssertionError) {
-      msg = err.message;
-    } else {
-      // log(err);
     }
 
     if (msg) {
+      if (msg.indexOf('${task.file}:') !== -1) {
+        msg = msg.split('${task.file}:')[1];
+      }
+
       log(
-        err.constructor.name.red, task.suite.yellow,
-        `${task.name}/${task.file}`.cyan,
+        `[${err.constructor.name.red}]`,
+        task.suite.yellow,
+        `${task.path.split(task.suite)[1]}`.cyan,
         `\n => ${msg.grey}`
       );
     }

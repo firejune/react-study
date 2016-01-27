@@ -4,18 +4,23 @@
     // "es2015",
     // "react"
   ],
+
   "plugins": [
-    // ES2015
+    /* ES2015 */
     "transform-es2015-destructuring",
+    "transform-es2015-for-of",
     "transform-es2015-modules-commonjs",
+    "transform-es2015-object-super", // It's Work!, But already implemented of recently chrome browser
     "transform-es2015-parameters",
     "transform-es2015-shorthand-properties",
     // "transform-es2015-sticky-regex", // Not Working
     // "transform-es2015-unicode-regex", // Not Working
     // "transform-regenerator", // Not Working
-    // Stage-2
+
+    /* Stage-2 */
     "transform-object-rest-spread",
-    // React
+
+    /* React */
     "transform-react-jsx"
   ]
 }

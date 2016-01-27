@@ -11,6 +11,7 @@
         require('babel-core/register')({
           ignore: /node_modules/,
         });
+        // require('./scripts/transform-test')();
         require('./src');
       } else {
         document.write('<script src="\/bundle.js"><\/script>');

@@ -24,4 +24,4 @@ app.on('ready', () => {
 require('babel-core/register')({
   ignore: /node_modules/
 });
-require('./scripts/transform-test');
+require('./scripts/transform-test')();
