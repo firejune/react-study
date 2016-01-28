@@ -8,4 +8,4 @@ var Bar = Foo;
 Foo = 5;
 assert.throws(function () {
   Bar.call(6);
-}, /Cannot call a class as a function/);
+}, /Cannot call a class as a function|Class constructors cannot be invoked without 'new'/);
